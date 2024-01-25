@@ -1,4 +1,4 @@
-ARG BASE_VERSION=10.13
+ARG BASE_VERSION=10.13@sha256:d39357a2a8840e450e387df33a5aaf8f0c8f99e388a0e18169f3dd240fc2393d
 FROM debian:$BASE_VERSION
 
 ARG L0_SRC_URL=https://github.com/oneapi-src/level-zero/archive/refs/tags/v1.8.5.tar.gz
