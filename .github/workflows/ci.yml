@@ -10,9 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build docker image
-        working-directory: ./builder
         run: |
-          docker build -f Dockerfile.builder-ubuntu22.04 -t intel-xpumanager .
+          docker build -f builder/Dockerfile.builder-ubuntu22.04 -t intel-xpumanager .
       - name: Run build.sh
         run: |
           rm -fr build
