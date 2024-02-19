@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build docker image
         run: |
-          docker build -f ${{github.workspace}}/builder/Dockerfile.builder-ubuntu22.04 -t intel-xpumanager .
+          docker build -f ${{github.workspace}}/builder/Dockerfile.builder-ubuntu22.04 -t intel-xpumanager ${{github.workspace}}
       - name: Run build.sh
         run: |
           rm -fr build
