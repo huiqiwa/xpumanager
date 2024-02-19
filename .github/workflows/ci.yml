@@ -8,7 +8,11 @@ jobs:
   build-linux:
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+      - name: List directory contents
+        run: ls -l ${{ github.workspace }}
+      - name: List directory contents
+        run: ls -l .
       - name: Build docker image
         run: |
           docker build -f builder/Dockerfile.builder-ubuntu22.04 -t intel-xpumanager .
