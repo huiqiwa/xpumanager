@@ -1,18 +1,18 @@
 on:
   push:
-    branches: [ master ]
+    branches: [ master, main ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, main ]
 
 jobs:
   build-linux:
-    runs-on: [ubuntu-20.04]
+    runs-on: [ubuntu-22.04]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Build docker image
         run: |
-          docker build --memory=5g -f .github/dockerfiles/Dockerfile.builder -t intel-xpumanager .
+          docker build -f ${{ github.workspace }}/builder/Dockerfile.builder-ubuntu -t intel-xpumanager ${{ github.workspace }}
       - name: Run build.sh
         run: |
           rm -fr build
