@@ -9,12 +9,9 @@ ARG ZLIB_VERSION=v1.3
 ARG GRPC_VERSION=v1.56.2
 ARG CARES_VERSION=cares-1_19_1
 
-ENV DEBIAN_FRONTEND=noninteractive
-
 RUN apt-get update && apt-get install --no-install-recommends -y autoconf automake build-essential ccache doxygen \
     dpkg-dev git gcc g++ libssl-dev libtool liblua5.2-0 libudev-dev pkg-config python3 python3-dev python3-pip wget && \
-    apt-get remove -y libpciaccess-dev libpciaccess0 && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get remove -y libpciaccess-dev libpciaccess0
 
 RUN mkdir cmake && \
     cd cmake && \
