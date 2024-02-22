@@ -22,7 +22,7 @@ jobs:
       - name: Check if build succeeded
         run: |
           set -e
-          if ls "${{ github.workspace }}/build"/*.deb1 >/dev/null 2>&1; then
+          if ls "${{ github.workspace }}/build"/*.deb >/dev/null 2>&1; then
             echo "Package exists."
           else
             echo "Package does not exist."
