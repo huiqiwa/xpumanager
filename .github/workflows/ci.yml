@@ -1,8 +1,8 @@
 on:
   push:
-    branches: [ master, main ]
+    branches: [ master ]
   pull_request:
-    branches: [ master, main ]
+    branches: [ master ]
 
 jobs:
   build-linux:
@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - name: Build docker image
         run: |
           docker build -f ${{ github.workspace }}/builder/Dockerfile.builder-ubuntu -t intel-xpumanager ${{ github.workspace }}
